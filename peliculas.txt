@@ -1,0 +1,20 @@
+201;Interestelar;Ciencia ficcion;169;5
+202;El padrino;Drama;175;5
+203;Toy Story;Animacion;81;4
+204;Matrix;Ciencia ficcion;136;5
+205;Coco;Animacion;105;4
+206;Titanic;Drama;195;4
+207;Alien;Terror;117;4
+208;El resplandor;Terror;146;5
+209;Volver al futuro;Aventura;116;4
+210;Shrek;Animacion;90;3
+211;Gladiador;Accion;155;5
+212;Mad Max;Accion;120;4
+213;Superbad;Comedia;113;3
+214;Mi pobre angelito;Comedia;103;4
+215;Up;Animacion;96;5
+216;El senor de los anillos;Aventura;178;5
+217;Psicosis;Terror;109;4
+218;Forrest Gump;Drama;142;5
+219;Duro de matar;Accion;132;4
+220;Ratatouille;Animacion;111;4
