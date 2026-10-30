@@ -27,23 +27,23 @@ def ejecutar_opcion(opcion):
     #Modificar nombres de funciones
     """Llama a la función de la opción elegida pasándole las rutas de los archivos."""
     if opcion == 1:
-        opcion_alta(matriz)
+        opcion_alta(RUTA_PELICULAS)
     elif opcion == 2:
-        opcion_consultar(matriz)
+        opcion_consultar(RUTA_PELICULAS)
     elif opcion == 3:
-        opcion_modificar(matriz)
+        opcion_modificar(RUTA_PELICULAS)
     elif opcion == 4:
-        opcion_baja(matriz)
+        opcion_baja(RUTA_PELICULAS, RUTA_VISUALIZACIONES)
     elif opcion == 5:
-        opcion_listar(matriz)
+        opcion_listar(RUTA_PELICULAS)
     elif opcion == 6:
-        opcion_listado_cruzado(matriz)
+        opcion_listado_cruzado(RUTA_PELICULAS, RUTA_VISUALIZACIONES)
     elif opcion == 7:
-        opcion_consulta_operaciones(matriz)
+        opcion_consulta_operaciones(RUTA_PELICULAS, RUTA_VISUALIZACIONES)
     elif opcion == 8:
-        opcion_estadisticas(matriz)
+        opcion_estadisticas(RUTA_PELICULAS, RUTA_VISUALIZACIONES)
     elif opcion == 9:
-        opcion_informe(matriz)
+        opcion_informe(RUTA_PELICULAS, RUTA_VISUALIZACIONES)
 
 
 def iniciar_menu():
