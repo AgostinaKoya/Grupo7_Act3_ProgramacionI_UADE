@@ -5,14 +5,40 @@ from funciones.consultas import buscar_pelicula
 
 def alta_pelicula(peliculas, codigo, titulo, genero, duracion, calificacion):
     """Agrega la película a la matriz si el código no existe; devuelve True si la agregó, False si estaba repetido."""
-    pass
+
+    print(peliculas, codigo)
+    pos = buscar_pelicula(peliculas, codigo)
+
+    if pos != -1:
+        return True
+
+    return False
+        
 
 
 def modificar_pelicula(peliculas, posicion, titulo, genero, duracion, calificacion):
-    """Actualiza los campos de la película en esa posición (el código no cambia)."""
-    pass
+
+    peliculas[posicion][TITULO] = titulo
+    peliculas[posicion][GENERO] = genero
+    peliculas[posicion][DURACION] = duracion
+    peliculas[posicion][CALIFICACION] = calificacion
+
+    print(peliculas)
 
 
 def baja_en_cascada(peliculas, visualizaciones, codigo):
     """Elimina la película y todas sus visualizaciones; devuelve las dos matrices actualizadas."""
-    pass
+    nueva_lista_peliculas = []
+    nueva_lista_visualizaciones = []
+
+
+    for pelicula in peliculas:
+        if pelicula[CODIGO] != codigo:
+            nueva_lista_peliculas.append(pelicula)
+    #print(nueva_lista_peliculas)
+
+    for visualizacion in visualizaciones:
+        if visualizacion[COD_PELICULA] != codigo:
+            nueva_lista_visualizaciones.append(visualizacion)
+
+    return nueva_lista_peliculas, nueva_lista_visualizaciones
