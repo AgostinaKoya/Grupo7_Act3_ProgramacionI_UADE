@@ -27,21 +27,23 @@ def ejecutar_opcion(opcion):
     #Modificar nombres de funciones
     """Llama a la función de la opción elegida pasándole las rutas de los archivos."""
     if opcion == 1:
-        print(ingresar_registro(matriz))
+        opcion_alta(matriz)
     elif opcion == 2:
-        print(opcion_normalizar(matriz))
+        opcion_consultar(matriz)
     elif opcion == 3:
-        print(opcion_analizar(matriz))
+        opcion_modificar(matriz)
     elif opcion == 4:
-        print(opcion_procesar_palabras(matriz))
+        opcion_baja(matriz)
     elif opcion == 5:
-        print(opcion_reemplazar_extraer(matriz))
+        opcion_listar(matriz)
     elif opcion == 6:
-        print(opcion_codificar(matriz))
+        opcion_listado_cruzado(matriz)
     elif opcion == 7:
-        print(opcion_reporte(matriz))
+        opcion_consulta_operaciones(matriz)
     elif opcion == 8:
-        print(mostrar_registros(matriz))
+        opcion_estadisticas(matriz)
+    elif opcion == 9:
+        opcion_informe(matriz)
 
 
 def iniciar_menu():
