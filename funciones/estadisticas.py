@@ -51,5 +51,16 @@ def peliculas_mas_visualizadas(peliculas, visualizaciones):
 
 def promedio_minutos(visualizaciones, codigo):
     """Estadística 4: devuelve el promedio de minutos vistos de una película; sin visualizaciones no divide por cero."""
-
+    promedio = None
+    suma = 0
+    total = 0
+    for registro in visualizaciones:
+        if registro[COD_PELICULA] == codigo:
+            total += 1
+            suma += registro[MINUTOS]
     
+    if total > 0:
+        promedio = suma / total
+
+    return promedio
+        
