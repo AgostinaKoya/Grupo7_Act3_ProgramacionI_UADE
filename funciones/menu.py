@@ -53,7 +53,7 @@ def iniciar_menu():
         mostrar_menu()
         opcion = pedir_entero_en_rango("Elija una opción: ", 0, 8)
         try:
-            print(ejecutar_opcion(opcion, matriz)) #quitar el print para probar
+            print(ejecutar_opcion(opcion)) #quitar el print para probar
         finally:
             if opcion != 0:
                 input("\nPresione ENTER para volver al menú...")
