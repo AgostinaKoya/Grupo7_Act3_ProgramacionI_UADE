@@ -51,4 +51,5 @@ def peliculas_mas_visualizadas(peliculas, visualizaciones):
 
 def promedio_minutos(visualizaciones, codigo):
     """Estadística 4: devuelve el promedio de minutos vistos de una película; sin visualizaciones no divide por cero."""
-    pass
+
+    
