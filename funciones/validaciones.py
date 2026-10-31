@@ -2,17 +2,19 @@
 
 
 def pedir_entero_positivo(mensaje):
-    """Pide un entero mayor a 0, reintenta ante ValueError y devuelve el número."""
+    """Pide un entero mayor a 0; ante letras o valores menores o iguales a 0 informa y vuelve a pedir."""
     valido = False
     while not valido:
         try: 
             numero = int(input(mensaje))
-            while numero <=0:
-                numero = int(input(mensaje))
+            if numero <= 0:
+                raise ValueError("El número debe ser mayor a 0.")
             valido = True
-        except ValueError:
-            print("Error! Se esperaba un número, ingréselo")
-       
+        except ValueError as error:
+            if "invalid literal" in str(error):
+                print("Error: debe ingresar un número entero, sin letras ni decimales.")
+            else:
+                print(f"Error: {error}")
     return numero
 
 
@@ -21,41 +23,31 @@ def pedir_entero_en_rango(mensaje, minimo, maximo):
     valido = False
     while not valido:
         try: 
-            numero = int(input(mensaje))
+            numero = int(input(mensaje).strip())
             if numero < minimo or numero > maximo:
-                print(f"El valor debe estar entre {minimo} y {maximo}.")
+                raise ValueError(f"El valor debe estar entre {minimo} y {maximo}.")
+            valido = True
+        except ValueError as error:
+            if "invalid literal" in str(error):
+                print("Error: se esperaba un número entero.")
             else:
-                valido = True
-        except ValueError:
-            print("Error: se esperaba un número entero.")
+                print(f"Error: {error}")
     return numero
 
 
 def pedir_texto_no_vacio(mensaje):
-    """Pide un texto que no esté vacío (título, género) y lo devuelve."""
+    """Pide un texto que no esté vacío y sin ';' (título, género) y lo devuelve."""
     valido = False
     while not valido:
         texto = input(mensaje).strip()
         if texto == "":
-            print(f"El texto no debe estar vacío")
+            print(f"Error: El texto no debe estar vacío")
+        elif ";" in texto:
+            print("Error: el texto no puede contener ';'.")
         else:
             valido = True
     return texto
 
-def pedir_confirmacion(mensaje):
-    """Pide confirmación S/N y devuelve True si el usuario confirma."""
-    valido = False
-    while not valido:
-        confirmacion = input(mensaje).upper().strip()
-        if confirmacion != "S" and confirmacion !="N" :
-            print(f"Debe indicar S/N")
-        elif confirmacion == "S":
-            confirma = True
-            valido = True
-        elif confirmacion == "N":
-            confirma = False
-            valido = True
-    return confirma
 
 def pedir_texto_opcional(mensaje, actual):
     """Pide un texto nuevo; si el usuario presiona Enter devuelve el valor actual."""
@@ -71,26 +63,47 @@ def pedir_texto_opcional(mensaje, actual):
             valido = True
     return texto
 
-def pedir_entero_opcional(mensaje, actual):
-    """Pide un entero; si el usuario presiona Enter devuelve el valor actual."""
-    valido = False
+# def pedir_entero_opcional(mensaje, actual):
+#     """Pide un entero; si el usuario presiona Enter devuelve el valor actual."""
+#     valido = False
 
-    while not valido:
-        entrada = input(f"{mensaje} [{actual}]: ").strip()
+#     while not valido:
+#         entrada = input(f"{mensaje} [{actual}]: ").strip()
 
-        if entrada == "":
-            numero = actual
-            valido = True
-        else:
-            try:
-                numero = int(entrada)
-                valido = True
-            except ValueError:
-                print("Error: debe ingresar un número entero.")
+#         if entrada == "":
+#             numero = actual
+#             valido = True
+#         else:
+#             try:
+#                 numero = int(entrada)
+#                 valido = True
+#             except ValueError:
+#                 print("Error: debe ingresar un número entero.")
 
-    return numero
+#     return numero
 
-def pedir_entero_rango_opcional(mensaje, actual, minimo, maximo):
+# def pedir_entero_rango_opcional(mensaje, actual, minimo, maximo):
+#     """Pide un entero entre minimo y maximo; si el usuario presiona Enter devuelve el valor actual."""
+#     valido = False
+#     while not valido:
+#         entrada = input(f"{mensaje} [{actual}]: ").strip()
+#         if entrada == "":
+#             numero = actual
+#             valido = True
+#         else:
+#             try:
+#                 numero = int(entrada)
+#                 if numero < minimo or numero > maximo:
+#                     raise ValueError(f"El valor debe estar entre {minimo} y {maximo}.")
+#                 valido = True
+#             except ValueError as error:
+#                 if "invalid literal" in str(error):
+#                     print("Error: debe ingresar un número entero.")
+#                 else:
+#                     print(f"Error: {error}")
+#     return numero
+
+def pedir_entero_opcional(mensaje, actual, minimo, maximo):
     """Pide un entero entre minimo y maximo; si el usuario presiona Enter devuelve el valor actual."""
     valido = False
     while not valido:
@@ -110,3 +123,27 @@ def pedir_entero_rango_opcional(mensaje, actual, minimo, maximo):
                 else:
                     print(f"Error: {error}")
     return numero
+
+
+def pedir_confirmacion(mensaje):
+    """Pide S/N hasta que la respuesta sea válida; devuelve True si el usuario confirma."""
+    respuesta = input(mensaje).strip().upper()
+    while respuesta != "S" and respuesta != "N":
+        print("Error: debe responder S o N.")
+        respuesta = input(mensaje).strip().upper()
+    return respuesta == "S"
+
+# def pedir_confirmacion(mensaje):
+#     """Pide confirmación S/N y devuelve True si el usuario confirma."""
+#     valido = False
+#     while not valido:
+#         confirmacion = input(mensaje).upper().strip()
+#         if confirmacion != "S" and confirmacion !="N" :
+#             print(f"Debe indicar S/N")
+#         elif confirmacion == "S":
+#             confirma = True
+#             valido = True
+#         elif confirmacion == "N":
+#             confirma = False
+#             valido = True
+#     return confirma
