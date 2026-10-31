@@ -1,44 +1,62 @@
-# Salidas por consola con formato de tabla (solo imprime, no calcula)
 from funciones.constantes import CODIGO, TITULO, GENERO, DURACION, CALIFICACION
 from funciones.constantes import NRO_VISUALIZACION, COD_PELICULA, MINUTOS
 
 
-def mostrar_peliculas(peliculas):
-    """Imprime la tabla de películas con encabezados y columnas alineadas."""
+
+
+
+# ¡¡IMPORTANTE!!
+# Salidas por consola con formato de tabla (solo imprimen, no calculan)
+
+
+
+
+def mostrar_encabezado_peliculas():
+    """Imprime los encabezados del catálogo de películas."""
     print(f'{"CÓDIGO":<10}{"TÍTULO":<30}{"GÉNERO":<20}{"DURACIÓN":<12}{"CALIFICACIÓN":<15}')
     print("-" * 80)
 
-    for pelicula in peliculas:
-        codigo = pelicula[CODIGO]
-        titulo = pelicula[TITULO]
-        genero = pelicula[GENERO]
-        duracion = pelicula[DURACION]
-        calificacion = pelicula[CALIFICACION]
-        print(f'{codigo:<10}{titulo:<30}{genero:<20}{duracion:<12}{calificacion:<15}')
-
-
-def mostrar_pelicula(pelicula, peliculas):
-    """Imprime los datos de una sola película."""
-    print(f'{"CÓDIGO":<10}{"TÍTULO":<30}{"GÉNERO":<20}{"DURACIÓN":<12}{"CALIFICACIÓN":<15}')
-    print("-" * 80)
-    codigo = peliculas[pelicula][CODIGO]
-    titulo = peliculas[pelicula][TITULO]
-    genero = peliculas[pelicula][GENERO]
-    duracion = peliculas[pelicula][DURACION]
-    calificacion = peliculas[pelicula][CALIFICACION]
+def mostrar_pelicula_fila(pelicula):
+    """Imprime datos de una película en una fila."""
+    codigo = pelicula[CODIGO]
+    titulo = pelicula[TITULO]
+    genero = pelicula[GENERO]
+    duracion = pelicula[DURACION]
+    calificacion = pelicula[CALIFICACION]
     print(f'{codigo:<10}{titulo:<30}{genero:<20}{duracion:<12}{calificacion:<15}')
 
+def mostrar_pelicula(pelicula):
+    """Imprime datos de una película, un dato por línea."""
+    print(f'\n{"Código:":<15}{pelicula[CODIGO]}')
+    print(f'{"Título:":<15}{pelicula[TITULO]}')
+    print(f'{"Género:":<15}{pelicula[GENERO]}')
+    print(f'{"Duración:":<15}{pelicula[DURACION]}')
+    print(f'{"Calificación:":<15}{pelicula[CALIFICACION]}')
 
-def mostrar_cruzado(cruzado):
-    """Imprime la tabla del listado cruzado de visualizaciones y películas."""
+def mostrar_encabezado_cruzado():
+    """Imprime el encabezado del listado cruzado de visualizaciones."""
     pass
 
-
-def mostrar_detalle_operaciones(pelicula, operaciones):
-    """Imprime los datos de la película, sus visualizaciones, la cantidad y los minutos acumulados."""
+def mostrar_fila_cruzado(visualizacion, pelicula):
+    """Imprime una visualización junto con título, género y duración de su película."""
     pass
 
+def mostrar_encabezado_operaciones():
+    """Imprime el encabezado de la tabla de visualizaciones de una película."""
+    pass
 
-def mostrar_estadisticas(total, por_pelicula, mas_vistas, maximo):
-    """Imprime las estadísticas 1, 2 y 3."""
+def mostrar_fila_operacion(visualizacion):
+    """Imprime una visualización (número y minutos vistos)."""
+    pass
+
+def mostrar_totales_operaciones(cantidad, minutos):
+    """Imprime la cantidad de operaciones y los minutos acumulados, o avisa si no hay operaciones."""
+    pass
+
+def mostrar_fila_conteo(pelicula, cantidad):
+    """Imprime el código, el título y la cantidad de visualizaciones de una película."""
+    pass
+
+def mostrar_fila_mas_vista(pelicula, cantidad):
+    """Imprime una de las películas más visualizadas."""
     pass
