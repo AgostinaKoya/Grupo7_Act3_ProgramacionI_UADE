@@ -85,6 +85,22 @@ def minutos_acumulados(ruta_visualizaciones, codigo):
     return suma
 
 
+def leer_ultimo_codigo(ruta_peliculas):
+    """Recorre peliculas.txt y devuelve el código de la última película (0 si el archivo está vacío)."""
+    ultimo = 0
+
+    try:
+        with open(ruta_peliculas, "r", encoding="UTF-8") as archivo:
+            for linea in archivo:
+                if linea.strip() != "":
+                    datos = linea.strip().split(";")
+                    ultimo = int(datos[0])
+    except FileNotFoundError:
+        print("ERROR. No se encontró el archivo.")
+    except OSError as error:
+        print("ERROR. No fue posible acceder al archivo.")
+        print("Detalle:", error)
+    return ultimo
 
 
 # def leer_peliculas(ruta):
