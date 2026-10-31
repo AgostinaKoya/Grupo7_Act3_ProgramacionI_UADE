@@ -1,4 +1,4 @@
-from funciones.constantes import CODIGO, COD_PELICULA
+from funciones.constantes import CODIGO, COD_PELICULA, MINUTOS
 
 # Lectura y escritura de los archivos de texto (no importa otros módulos)
 
