@@ -56,3 +56,57 @@ def pedir_confirmacion(mensaje):
             confirma = False
             valido = True
     return confirma
+
+def pedir_texto_opcional(mensaje, actual):
+    """Pide un texto nuevo; si el usuario presiona Enter devuelve el valor actual."""
+    valido = False
+    while not valido:
+        texto = input(f"{mensaje} [{actual}]: ").strip()
+        if texto == "":
+            texto = actual
+            valido = True
+        elif ";" in texto:
+            print("Error: el texto no puede contener ';'.")
+        else:
+            valido = True
+    return texto
+
+def pedir_entero_opcional(mensaje, actual):
+    """Pide un entero; si el usuario presiona Enter devuelve el valor actual."""
+    valido = False
+
+    while not valido:
+        entrada = input(f"{mensaje} [{actual}]: ").strip()
+
+        if entrada == "":
+            numero = actual
+            valido = True
+        else:
+            try:
+                numero = int(entrada)
+                valido = True
+            except ValueError:
+                print("Error: debe ingresar un número entero.")
+
+    return numero
+
+def pedir_entero_rango_opcional(mensaje, actual, minimo, maximo):
+    """Pide un entero entre minimo y maximo; si el usuario presiona Enter devuelve el valor actual."""
+    valido = False
+    while not valido:
+        entrada = input(f"{mensaje} [{actual}]: ").strip()
+        if entrada == "":
+            numero = actual
+            valido = True
+        else:
+            try:
+                numero = int(entrada)
+                if numero < minimo or numero > maximo:
+                    raise ValueError(f"El valor debe estar entre {minimo} y {maximo}.")
+                valido = True
+            except ValueError as error:
+                if "invalid literal" in str(error):
+                    print("Error: debe ingresar un número entero.")
+                else:
+                    print(f"Error: {error}")
+    return numero
