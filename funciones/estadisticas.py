@@ -1,6 +1,6 @@
 # Las cuatro estadísticas requeridas
 from funciones.constantes import CODIGO
-from funciones.consultas import contar_visualizaciones
+from funciones.archivos import contar_visualizaciones
 from funciones.presentacion import mostrar_fila_conteo, mostrar_fila_mas_vista
 
 
