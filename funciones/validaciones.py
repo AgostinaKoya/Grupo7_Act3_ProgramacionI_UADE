@@ -7,7 +7,7 @@ def pedir_entero_positivo(mensaje):
     while not valido:
         try: 
             numero = int(input(mensaje))
-            while numero <0:
+            while numero <=0:
                 numero = int(input(mensaje))
             valido = True
         except ValueError:

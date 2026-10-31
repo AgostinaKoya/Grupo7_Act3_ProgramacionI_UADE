@@ -2,6 +2,8 @@
 RUTA_PELICULAS = "peliculas.txt"
 RUTA_VISUALIZACIONES = "visualizaciones.txt"
 RUTA_REPORTE = "reporte_visualizaciones.txt"
+RUTA_TEMP_PELICULAS = "temp_peliculas.txt"
+RUTA_TEMP_VISUALIZACIONES = "temp_visualizaciones.txt"
 
 # Columnas de la matriz de películas
 CODIGO = 0
