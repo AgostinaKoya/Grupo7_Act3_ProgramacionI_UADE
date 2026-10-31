@@ -10,7 +10,7 @@ def buscar_pelicula(ruta_peliculas, codigo):
         linea = archivo.readline()
         while linea != "" and not encontrado:
             datos = linea.strip().split(";")
-            if datos[CODIGO] == codigo:
+            if int(datos[CODIGO]) == codigo:
                 encontrado = True
                 pelicula = datos
             else:

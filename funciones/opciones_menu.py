@@ -21,6 +21,7 @@ def opcion_consultar(ruta_peliculas):
     """Opción 2: pide un código, busca y muestra la película, o informa que no existe."""
     codigo = pedir_entero_positivo("Ingrese el código de la película: ")
     pelicula = buscar_pelicula(ruta_peliculas, codigo)
+
     if len(pelicula) > 0:
         mostrar_pelicula(pelicula)
     else:
