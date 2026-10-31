@@ -1,56 +1,55 @@
-# Una función por cada opción del menú: pide datos, llama a las demás funciones y muestra resultados
-from funciones.constantes import CODIGO, TITULO, GENERO, DURACION, CALIFICACION, RUTA_REPORTE
-from funciones.archivos import leer_peliculas, leer_visualizaciones, guardar_peliculas, guardar_visualizaciones
-from funciones.validaciones import pedir_entero_positivo, pedir_entero_en_rango, pedir_texto_no_vacio, pedir_confirmacion
-from funciones.consultas import buscar_pelicula, visualizaciones_de_pelicula, cruzar_visualizaciones
-from funciones.consultas import contar_visualizaciones, minutos_acumulados
-from funciones.estadisticas import total_visualizaciones, visualizaciones_por_pelicula
-from funciones.estadisticas import peliculas_mas_visualizadas, promedio_minutos
-from funciones.presentacion import mostrar_peliculas, mostrar_pelicula, mostrar_cruzado
-from funciones.presentacion import mostrar_detalle_operaciones, mostrar_estadisticas
+# Una función por opción del menú: pide los datos, llama a las demás funciones y muestra resultados
+from funciones.constantes import TITULO, GENERO, DURACION, CALIFICACION
+from funciones.constantes import CALIFICACION_MIN, CALIFICACION_MAX, DURACION_MAX
+from funciones.validaciones import pedir_entero_positivo, pedir_entero_en_rango, pedir_texto_no_vacio
+from funciones.validaciones import pedir_texto_opcional, pedir_entero_opcional, pedir_confirmacion
+from funciones.archivos import buscar_pelicula, contar_visualizaciones, minutos_acumulados
+from funciones.consultas import listar_peliculas, listar_cruzado, mostrar_operaciones
 from funciones.crud import alta_pelicula, modificar_pelicula, baja_en_cascada
+from funciones.estadisticas import total_visualizaciones, mostrar_visualizaciones_por_pelicula
+from funciones.estadisticas import maximo_visualizaciones, mostrar_mas_visualizadas, promedio_minutos
+from funciones.presentacion import mostrar_pelicula, mostrar_totales_operaciones
 from funciones.reporte import generar_reporte
 
-
 def opcion_listar(ruta_peliculas):
-    """Opción 1: lee peliculas.txt y muestra la tabla de películas."""
+    """Opción 1: muestra la tabla con todas las películas."""
+    print("\nLISTADO DE PELÍCULAS\n")
+    listar_peliculas(ruta_peliculas)
 
 
 def opcion_consultar(ruta_peliculas):
-    """Opción 2: pide un código y muestra la película o informa que no existe."""
-    peliculas = leer_peliculas(ruta_peliculas)
-    codigo = pedir_entero_positivo("Ingrese un código de película: ")
-    pelicula = buscar_pelicula(peliculas,codigo)
-    if pelicula != -1:
-        mostrar_pelicula(pelicula, peliculas)
+    """Opción 2: pide un código y muestra la película, o informa que no existe."""
+    codigo = pedir_entero_positivo("Ingrese el código de la película: ")
+    pelicula = buscar_pelicula(ruta_peliculas, codigo)
+    if len(pelicula) > 0:
+        mostrar_pelicula(pelicula)
     else:
-        print(f'La película con código {codigo} no existe.')
+        print(f"No existe una película con código {codigo}.")
 
 
 
 def opcion_alta(ruta_peliculas):
-    """Opción 3: pide y valida los campos, rechaza código repetido y guarda en peliculas.txt."""
-    peliculas = leer_peliculas(ruta_peliculas)
-    codigo = peliculas[-1][CODIGO] + 1
-    titulo = pedir_texto_no_vacio("Ingrese título de la nueva película: ")
-    #ver si es necesario validar que no exista ya el título
-    genero = pedir_texto_no_vacio("Ingrese género de la película: ")
-    duracion = pedir_entero_positivo("Ingrese duración en minutos de la película: ")
-    calificacion = pedir_entero_en_rango("Ingrese calificación entre 1 y 5", 1, 5)
-    alta = alta_pelicula(peliculas, codigo, titulo, genero, duracion, calificacion)
-    if alta == True:
-        guardar_peliculas(ruta_peliculas, peliculas)
+    """Opción 3: pide y valida los campos; rechaza códigos repetidos y agrega la película al archivo."""
+    codigo = pedir_entero_positivo("Ingrese el código de la nueva película: ")
+    if len(buscar_pelicula(ruta_peliculas, codigo)) > 0:
+        print(f"El código {codigo} ya existe. No se registró la película.")
     else:
-        print(f'El código {codigo} está repetido.')
+        titulo = pedir_texto_no_vacio("Ingrese el título: ")
+        genero = pedir_texto_no_vacio("Ingrese el género: ")
+        duracion = pedir_entero_en_rango(f"Ingrese la duración en minutos (1 a {DURACION_MAX}): ", 1, DURACION_MAX)
+        calificacion = pedir_entero_en_rango(
+            f"Ingrese la calificación ({CALIFICACION_MIN} a {CALIFICACION_MAX}): ",
+            CALIFICACION_MIN,
+            CALIFICACION_MAX
+        )
+        alta_pelicula(ruta_peliculas, codigo, titulo, genero, duracion, calificacion)
+        print(f"Película {codigo} registrada correctamente.")
     
 
 
-
-
 def opcion_modificar(ruta_peliculas):
-    """Opción 4: pide un código y nuevos valores (Enter conserva el anterior) y guarda los cambios."""
+    """Opción 4: modifica todos los campos salvo el código; Enter conserva el valor anterior."""
     pass
-
 
 def opcion_baja(ruta_peliculas, ruta_visualizaciones):
     """Opción 5: muestra la película y sus visualizaciones, pide confirmación y da de baja en cascada."""
@@ -58,12 +57,12 @@ def opcion_baja(ruta_peliculas, ruta_visualizaciones):
 
 
 def opcion_listado_cruzado(ruta_peliculas, ruta_visualizaciones):
-    """Opción 6: muestra las visualizaciones junto con título, género y duración de cada película."""
+    """Opción 6: muestra cada visualización con los datos de su película."""
     pass
 
 
 def opcion_consulta_operaciones(ruta_peliculas, ruta_visualizaciones):
-    """Opción 7: pide un código y muestra la película, sus visualizaciones, cantidad y minutos acumulados."""
+    """Opción 7: muestra la película, sus visualizaciones, la cantidad y los minutos acumulados."""
     pass
 
 
@@ -72,6 +71,6 @@ def opcion_estadisticas(ruta_peliculas, ruta_visualizaciones):
     pass
 
 
-def opcion_informe(ruta_peliculas, ruta_visualizaciones):
-    """Opción 9: genera reporte_visualizaciones.txt con la información actualizada."""
+def opcion_informe(ruta_peliculas, ruta_visualizaciones, ruta_reporte):
+    """Opción 9: genera (sobrescribe) el informe consolidado con la información actualizada."""
     pass
