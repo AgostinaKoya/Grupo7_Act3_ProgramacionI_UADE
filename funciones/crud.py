@@ -6,13 +6,13 @@ from funciones.consultas import buscar_pelicula
 def alta_pelicula(peliculas, codigo, titulo, genero, duracion, calificacion):
     """Agrega la película a la matriz si el código no existe; devuelve True si la agregó, False si estaba repetido."""
 
-    print(peliculas, codigo)
     pos = buscar_pelicula(peliculas, codigo)
-
+    alta_realizada = False
     if pos != -1:
-        return True
-
-    return False
+        alta_pelicula = True
+        nueva_pelicula = [codigo, titulo, genero, duracion, calificacion]
+        peliculas.append(nueva_pelicula)
+    return alta_realizada
         
 
 

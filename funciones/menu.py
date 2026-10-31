@@ -8,14 +8,54 @@ from funciones.opciones_menu import opcion_estadisticas, opcion_informe
 
 def mostrar_menu():
     """Imprime las opciones del menú."""
-    pass
+    print("\n" + "=" * 52)
+    print("\n=== SISTEMA DE GESTIÓN DE CATÁLOGO ===")
+    print("=" * 52)
+    print("1. Ingresar película")
+    print("2. Consultar película")
+    print("3. Modificar película")
+    print("4. Eliminar película y su historial")
+    print("5. Listar catálogo")
+    print("6. Listar visualizaciones")
+    print("7. Consultar visualizaciones por película")
+    print("8. Estadísticas") #No estoy seguro de que esta opción se necesite.
+    print("9. Generar reporte de visualizaciones")
+    print("0. Salir")
 
 
 def ejecutar_opcion(opcion):
+    #Modificar nombres de funciones
     """Llama a la función de la opción elegida pasándole las rutas de los archivos."""
-    pass
+    if opcion == 1:
+        opcion_alta(RUTA_PELICULAS)
+    elif opcion == 2:
+        opcion_consultar(RUTA_PELICULAS)
+    elif opcion == 3:
+        opcion_modificar(RUTA_PELICULAS)
+    elif opcion == 4:
+        opcion_baja(RUTA_PELICULAS, RUTA_VISUALIZACIONES)
+    elif opcion == 5:
+        opcion_listar(RUTA_PELICULAS)
+    elif opcion == 6:
+        opcion_listado_cruzado(RUTA_PELICULAS, RUTA_VISUALIZACIONES)
+    elif opcion == 7:
+        opcion_consulta_operaciones(RUTA_PELICULAS, RUTA_VISUALIZACIONES)
+    elif opcion == 8:
+        opcion_estadisticas(RUTA_PELICULAS, RUTA_VISUALIZACIONES)
+    elif opcion == 9:
+        opcion_informe(RUTA_PELICULAS, RUTA_VISUALIZACIONES)
 
 
 def iniciar_menu():
     """Repite mostrar menú, pedir opción y ejecutarla hasta que el usuario elija salir."""
-    pass
+    opcion = -1
+    while opcion != 0:
+        mostrar_menu()
+        opcion = pedir_entero_en_rango("Elija una opción: ", 0, 8)
+        try:
+            print(ejecutar_opcion(opcion)) #quitar el print para probar
+        finally:
+            if opcion != 0:
+                input("\nPresione ENTER para volver al menú...")
+    print("\n¡Hasta luego!")
+

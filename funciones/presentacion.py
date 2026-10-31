@@ -5,12 +5,28 @@ from funciones.constantes import NRO_VISUALIZACION, COD_PELICULA, MINUTOS
 
 def mostrar_peliculas(peliculas):
     """Imprime la tabla de películas con encabezados y columnas alineadas."""
-    pass
+    print(f'{"CÓDIGO":<10}{"TÍTULO":<30}{"GÉNERO":<20}{"DURACIÓN":<12}{"CALIFICACIÓN":<15}')
+    print("-" * 80)
+
+    for pelicula in peliculas:
+        codigo = pelicula[CODIGO]
+        titulo = pelicula[TITULO]
+        genero = pelicula[GENERO]
+        duracion = pelicula[DURACION]
+        calificacion = pelicula[CALIFICACION]
+        print(f'{codigo:<10}{titulo:<30}{genero:<20}{duracion:<12}{calificacion:<15}')
 
 
-def mostrar_pelicula(pelicula):
+def mostrar_pelicula(pelicula, peliculas):
     """Imprime los datos de una sola película."""
-    pass
+    print(f'{"CÓDIGO":<10}{"TÍTULO":<30}{"GÉNERO":<20}{"DURACIÓN":<12}{"CALIFICACIÓN":<15}')
+    print("-" * 80)
+    codigo = peliculas[pelicula][CODIGO]
+    titulo = peliculas[pelicula][TITULO]
+    genero = peliculas[pelicula][GENERO]
+    duracion = peliculas[pelicula][DURACION]
+    calificacion = peliculas[pelicula][CALIFICACION]
+    print(f'{codigo:<10}{titulo:<30}{genero:<20}{duracion:<12}{calificacion:<15}')
 
 
 def mostrar_cruzado(cruzado):

@@ -14,17 +14,37 @@ from funciones.reporte import generar_reporte
 
 def opcion_listar(ruta_peliculas):
     """Opción 1: lee peliculas.txt y muestra la tabla de películas."""
-    pass
 
 
 def opcion_consultar(ruta_peliculas):
     """Opción 2: pide un código y muestra la película o informa que no existe."""
-    pass
+    peliculas = leer_peliculas(ruta_peliculas)
+    codigo = pedir_entero_positivo("Ingrese un código de película: ")
+    pelicula = buscar_pelicula(peliculas,codigo)
+    if pelicula != -1:
+        mostrar_pelicula(pelicula, peliculas)
+    else:
+        print(f'La película con código {codigo} no existe.')
+
 
 
 def opcion_alta(ruta_peliculas):
     """Opción 3: pide y valida los campos, rechaza código repetido y guarda en peliculas.txt."""
-    pass
+    peliculas = leer_peliculas(ruta_peliculas)
+    codigo = peliculas[-1][CODIGO] + 1
+    titulo = pedir_texto_no_vacio("Ingrese título de la nueva película: ")
+    #ver si es necesario validar que no exista ya el título
+    genero = pedir_texto_no_vacio("Ingrese género de la película: ")
+    duracion = pedir_entero_positivo("Ingrese duración en minutos de la película: ")
+    calificacion = pedir_entero_en_rango("Ingrese calificación entre 1 y 5", 1, 5)
+    alta = alta_pelicula(peliculas, codigo, titulo, genero, duracion, calificacion)
+    if alta == True:
+        guardar_peliculas(ruta_peliculas, peliculas)
+    else:
+        print(f'El código {codigo} está repetido.')
+    
+
+
 
 
 def opcion_modificar(ruta_peliculas):
