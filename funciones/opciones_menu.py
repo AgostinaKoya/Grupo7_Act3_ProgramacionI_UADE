@@ -19,7 +19,14 @@ def opcion_listar(ruta_peliculas):
 
 def opcion_consultar(ruta_peliculas):
     """Opción 2: pide un código y muestra la película o informa que no existe."""
-    pass
+    peliculas = leer_peliculas(ruta_peliculas)
+    codigo = pedir_entero_positivo("Ingrese un código de película: ")
+    pelicula = buscar_pelicula(peliculas,codigo)
+    if pelicula != -1:
+        mostrar_pelicula(pelicula, peliculas)
+    else:
+        print(f'La película con código {codigo} no existe.')
+
 
 
 def opcion_alta(ruta_peliculas):
