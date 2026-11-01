@@ -25,7 +25,8 @@ def escribir_bloque_pelicula(reporte, pelicula, ruta_visualizaciones):
     if cantidad == 0:
         reporte.write("Sin visualizaciones registradas.\n")
     reporte.write(f"\nOPERACIONES: {cantidad}\n")
-    reporte.write(f"MINUTOS ACUMULADOS: {minutos}\n\n")
+    reporte.write(f"MINUTOS ACUMULADOS: {minutos}\n")
+    reporte.write("=" * 63 + "\n\n")
     return cantidad, minutos
 
 def escribir_mas_visualizadas(reporte, ruta_peliculas, ruta_visualizaciones, maximo):

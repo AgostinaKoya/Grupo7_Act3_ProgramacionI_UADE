@@ -100,7 +100,7 @@ def opcion_consulta_operaciones(ruta_peliculas, ruta_visualizaciones):
 
 def opcion_estadisticas(ruta_peliculas, ruta_visualizaciones):
     """Opción 8: muestra las cuatro estadísticas (el promedio es de una película elegida)."""
-    print(f"Cantidad total de visualizaciones: {total_visualizaciones(ruta_visualizaciones)}\n")
+    print(f"\nCantidad total de visualizaciones: {total_visualizaciones(ruta_visualizaciones)}\n")
     print("Visualizaciones por película:")
     mostrar_visualizaciones_por_pelicula(ruta_peliculas, ruta_visualizaciones)
     maximo = maximo_visualizaciones(ruta_peliculas, ruta_visualizaciones)
