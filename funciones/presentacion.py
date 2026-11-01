@@ -39,7 +39,7 @@ def mostrar_encabezado_cruzado():
 
 def mostrar_fila_cruzado(visualizacion, pelicula):
     """Imprime una visualización junto con título, género y duración de su película."""
-    pass
+    print(f"{visualizacion[NRO_VISUALIZACION]:<6}{pelicula[CODIGO]:<8}{pelicula[TITULO]:<30}{pelicula[GENERO]:<18}{pelicula[DURACION]:>10}{visualizacion[MINUTOS]:>9}")
 
 def mostrar_encabezado_operaciones():
     """Imprime el encabezado de la tabla de visualizaciones de una película."""
