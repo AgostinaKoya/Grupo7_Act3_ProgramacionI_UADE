@@ -1,5 +1,5 @@
 # Las cuatro estadísticas requeridas
-from funciones.constantes import CODIGO
+from funciones.constantes import CODIGO, TITULO
 from funciones.archivos import contar_visualizaciones
 from funciones.presentacion import mostrar_fila_conteo, mostrar_fila_mas_vista
 
@@ -20,7 +20,7 @@ def mostrar_visualizaciones_por_pelicula(ruta_peliculas, ruta_visualizaciones):
         for linea in archivo:
             pelicula = linea.strip().split(";")
             cantidad = contar_visualizaciones(ruta_visualizaciones, int(pelicula[CODIGO]))
-            mostrar_fila_conteo(pelicula, cantidad)
+            print(f"  {pelicula[CODIGO]:<6}{pelicula[TITULO]:<30}{cantidad:>4}")
 
 def maximo_visualizaciones(ruta_peliculas, ruta_visualizaciones):
     """Estadística 3 (primera pasada): devuelve la mayor cantidad de visualizaciones de una película."""
@@ -40,7 +40,7 @@ def mostrar_mas_visualizadas(ruta_peliculas, ruta_visualizaciones, maximo):
             pelicula = linea.strip().split(";")
             cantidad = contar_visualizaciones(ruta_visualizaciones, int(pelicula[CODIGO]))
             if cantidad == maximo:
-                mostrar_fila_mas_vista(pelicula, cantidad)
+                print(f"  {pelicula[CODIGO]} - {pelicula[TITULO]} ({cantidad} visualizaciones)")
 
 
 def promedio_minutos(minutos, cantidad):
