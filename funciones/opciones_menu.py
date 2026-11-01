@@ -1,4 +1,3 @@
-# Una función por opción del menú: pide los datos, llama a las demás funciones y muestra resultados
 from funciones.constantes import TITULO, GENERO, DURACION, CALIFICACION
 from funciones.constantes import CALIFICACION_MIN, CALIFICACION_MAX, DURACION_MAX
 from funciones.validaciones import pedir_entero_positivo, pedir_entero_en_rango, pedir_texto_no_vacio

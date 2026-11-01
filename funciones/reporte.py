@@ -1,4 +1,3 @@
-# Generación del informe consolidado reporte_visualizaciones.txt
 from funciones.constantes import CODIGO, TITULO, GENERO, DURACION, CALIFICACION
 from funciones.constantes import NRO_VISUALIZACION, COD_PELICULA, MINUTOS
 from funciones.archivos import contar_visualizaciones

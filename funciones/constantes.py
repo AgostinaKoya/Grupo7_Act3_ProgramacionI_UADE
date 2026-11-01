@@ -5,14 +5,14 @@ RUTA_REPORTE = "reporte_visualizaciones.txt"
 RUTA_TEMP_PELICULAS = "temp_peliculas.txt"
 RUTA_TEMP_VISUALIZACIONES = "temp_visualizaciones.txt"
 
-# Columnas de la matriz de películas
+# Columnas del archivo de películas
 CODIGO = 0
 TITULO = 1
 GENERO = 2
 DURACION = 3
 CALIFICACION = 4
 
-# Columnas de la matriz de visualizaciones
+# Columnas del archivo de visualizaciones
 NRO_VISUALIZACION = 0
 COD_PELICULA = 1
 MINUTOS = 2

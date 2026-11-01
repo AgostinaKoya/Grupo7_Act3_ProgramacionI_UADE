@@ -1,4 +1,3 @@
-# Menú principal
 from funciones.constantes import RUTA_PELICULAS, RUTA_VISUALIZACIONES, RUTA_REPORTE
 from funciones.validaciones import pedir_entero_en_rango
 from funciones.opciones_menu import opcion_listar, opcion_consultar, opcion_alta, opcion_modificar, opcion_baja, opcion_listado_cruzado, opcion_consulta_operaciones,opcion_estadisticas, opcion_informe

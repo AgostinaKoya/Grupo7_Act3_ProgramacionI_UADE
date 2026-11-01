@@ -1,4 +1,3 @@
-# Lógica de alta, modificación y baja sobre las matrices (no pide datos ni imprime)
 import os
 from funciones.constantes import CODIGO, COD_PELICULA, RUTA_TEMP_PELICULAS, RUTA_TEMP_VISUALIZACIONES
 

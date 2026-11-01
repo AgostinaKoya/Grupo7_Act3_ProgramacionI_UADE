@@ -1,7 +1,5 @@
 from funciones.constantes import CODIGO, COD_PELICULA, MINUTOS
 
-# Lectura y escritura de los archivos de texto (no importa otros módulos)
-
 def buscar_pelicula(ruta_peliculas, codigo):
     """Busca una película por código; devuelve la lista con sus campos o [] si no existe."""
     pelicula = []
@@ -17,7 +15,6 @@ def buscar_pelicula(ruta_peliculas, codigo):
                 linea = archivo.readline()
     return pelicula
 
-
 def contar_visualizaciones(ruta_visualizaciones, codigo):
     """Recorre todo el archivo y devuelve la cantidad de visualizaciones de una película (0 si no tiene)."""
     cantidad = 0
@@ -27,7 +24,6 @@ def contar_visualizaciones(ruta_visualizaciones, codigo):
             if int(datos[COD_PELICULA]) == codigo:
                 cantidad += 1
     return cantidad
-
 
 def minutos_acumulados(ruta_visualizaciones, codigo):
     """Recorre todo el archivo y suma los minutos de esa película"""

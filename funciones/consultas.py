@@ -1,10 +1,6 @@
-# Listados y consultas que recorren los archivos y muestran cada línea con presentacion.py
 from funciones.constantes import COD_PELICULA, MINUTOS, NRO_VISUALIZACION, CODIGO, TITULO, GENERO, DURACION
 from funciones.archivos import buscar_pelicula
-from funciones.presentacion import mostrar_pelicula_fila #, mostrar_encabezado_peliculas
-# from funciones.presentacion import mostrar_encabezado_cruzado, mostrar_fila_cruzado
-# from funciones.presentacion import mostrar_encabezado_operaciones, mostrar_fila_operacion
-
+from funciones.presentacion import mostrar_pelicula_fila
 
 def listar_peliculas(ruta_peliculas):
     """Recorre peliculas.txt y muestra todas las películas en una tabla."""

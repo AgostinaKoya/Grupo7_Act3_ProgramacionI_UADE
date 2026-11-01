@@ -1,20 +1,4 @@
 from funciones.constantes import CODIGO, TITULO, GENERO, DURACION, CALIFICACION
-from funciones.constantes import NRO_VISUALIZACION, COD_PELICULA, MINUTOS
-
-
-
-
-
-# ¡¡IMPORTANTE!!
-# Salidas por consola con formato de tabla (solo imprimen, no calculan)
-
-
-
-
-# def mostrar_encabezado_peliculas():
-#     """Imprime los encabezados del catálogo de películas."""
-#     print(f"{'CODIGO':<8}{'TITULO':<30}{'GENERO':<18}{'DURACION':>10}{'CALIF.':>8}")
-#     print("-" * 74)
 
 def mostrar_pelicula_fila(pelicula):
     """Imprime datos de una película en una fila."""
@@ -30,23 +14,8 @@ def mostrar_pelicula(pelicula):
     print(f'\n{"Código:":<15}{pelicula[CODIGO]}')
     print(f'{"Título:":<15}{pelicula[TITULO]}')
     print(f'{"Género:":<15}{pelicula[GENERO]}')
-    print(f'{"Duración:":<15}{pelicula[DURACION]}')
+    print(f'{"Duración:":<15}{pelicula[DURACION]} minutos')
     print(f'{"Calificación:":<15}{pelicula[CALIFICACION]}')
-
-# def mostrar_encabezado_cruzado():
-#     """Imprime el encabezado del listado cruzado de visualizaciones."""
-#     print(f"{'NRO.':<6}{'CODIGO':<8}{'PELICULA':<30}{'GENERO':<18}{'DURACION':>10}{'MINUTOS':>9}")
-#     print("-" * 81)
-
-# def mostrar_fila_cruzado(visualizacion, pelicula):
-#     """Imprime una visualización junto con título, género y duración de su película."""
-#     print(f"{visualizacion[NRO_VISUALIZACION]:<6}{pelicula[CODIGO]:<8}{pelicula[TITULO]:<30}{pelicula[GENERO]:<18}{pelicula[DURACION]:>10}{visualizacion[MINUTOS]:>9}")
-
-# def mostrar_encabezado_operaciones():
-#     """Imprime el encabezado de la tabla de visualizaciones de una película."""
-#     print(f"\n{'NRO. VISUALIZACION':<22}{'MINUTOS VISTOS':>16}")
-#     print("-" * 38)
-
 
 def mostrar_totales_operaciones(cantidad, minutos):
     """Imprime la cantidad de operaciones y los minutos acumulados, o avisa si no hay operaciones."""
@@ -56,10 +25,3 @@ def mostrar_totales_operaciones(cantidad, minutos):
     print(f"{'Operaciones:':<22}{cantidad}")
     print(f"{'Minutos acumulados:':<22}{minutos}")
 
-# def mostrar_fila_conteo(pelicula, cantidad):
-#     """Imprime el código, el título y la cantidad de visualizaciones de una película."""
-#     print(f"  {pelicula[CODIGO]:<6}{pelicula[TITULO]:<30}{cantidad:>4}")
-
-# def mostrar_fila_mas_vista(pelicula, cantidad):
-#     """Imprime una de las películas más visualizadas."""
-#     print(f"  {pelicula[CODIGO]} - {pelicula[TITULO]} ({cantidad} visualizaciones)")

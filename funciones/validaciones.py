@@ -41,7 +41,7 @@ def pedir_texto_no_vacio(mensaje):
     while not valido:
         texto = input(mensaje).strip()
         if texto == "":
-            print(f"Error: El texto no debe estar vacío")
+            print("Error: El texto no debe estar vacío")
         elif ";" in texto:
             print("Error: el texto no puede contener ';'.")
         else:
