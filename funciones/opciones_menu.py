@@ -88,7 +88,14 @@ def opcion_listado_cruzado(ruta_peliculas, ruta_visualizaciones):
 
 def opcion_consulta_operaciones(ruta_peliculas, ruta_visualizaciones):
     """Opción 7: muestra la película, sus visualizaciones, la cantidad y los minutos acumulados."""
-    pass
+    codigo = pedir_entero_positivo("Ingrese el código de la película: ")
+    pelicula = buscar_pelicula(ruta_peliculas, codigo)
+    if len(pelicula) > 0:
+        mostrar_pelicula(pelicula)
+        cantidad, minutos = mostrar_operaciones(ruta_visualizaciones, codigo)
+        mostrar_totales_operaciones(cantidad, minutos)
+    else:
+        print(f"No existe una película con código {codigo}.")
 
 
 def opcion_estadisticas(ruta_peliculas, ruta_visualizaciones):

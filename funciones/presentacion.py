@@ -51,7 +51,11 @@ def mostrar_fila_operacion(visualizacion):
 
 def mostrar_totales_operaciones(cantidad, minutos):
     """Imprime la cantidad de operaciones y los minutos acumulados, o avisa si no hay operaciones."""
-    pass
+    print("-" * 38)
+    if cantidad == 0:
+        print("No existen visualizaciones registradas para esta película.")
+    print(f"{'Operaciones:':<22}{cantidad}")
+    print(f"{'Minutos acumulados:':<22}{minutos}")
 
 def mostrar_fila_conteo(pelicula, cantidad):
     """Imprime el código, el título y la cantidad de visualizaciones de una película."""
