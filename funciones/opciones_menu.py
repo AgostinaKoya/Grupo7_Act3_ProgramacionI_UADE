@@ -125,4 +125,5 @@ def opcion_estadisticas(ruta_peliculas, ruta_visualizaciones):
 
 def opcion_informe(ruta_peliculas, ruta_visualizaciones, ruta_reporte):
     """Opción 9: genera (sobrescribe) el informe consolidado con la información actualizada."""
-    pass
+    generar_reporte(ruta_peliculas, ruta_visualizaciones, ruta_reporte)
+    print(f"Informe generado correctamente en {ruta_reporte}.")
